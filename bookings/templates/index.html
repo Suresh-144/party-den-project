@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Party Den | Magic Moments</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="contact-bar">
+            <span>📞 9398572500, 9390832500</span>
+        </div>
+        <nav>
+            <div class="logo">MAGIC MOMENTS</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#book">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>THE PARTY DEN</h1>
+            <p class="tagline">"We Celebrate Every Occasion"</p>
+            <div class="price-badge">₹499/- per hr</div>
+            <img src="{% static 'images/banner.jpg' %}" alt="The Party Den Flyer" class="banner-img">
+        </section>
+
+        <section class="services">
+            <ul>
+                <li>Birthdays</li>
+                <li>Anniversaries</li>
+                <li>Mini Theatre</li>
+                <li>Photography</li>
+            </ul>
+        </section>
+        <section id="book" class="booking-section">
+            <h2>Book Your Event</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Submit Booking</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
