@@ -76,3 +76,115 @@ input, textarea {
     cursor: pointer;
     width: 100%;
 }
+
+/* Authentication and Account Sections */
+.auth-section, .account-section, .history-section, .contact-page {
+    padding: 60px 10%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-container, .account-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* History Grid Styling */
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.history-card {
+    background: #fff;
+    padding: 20px;
+    border-left: 5px solid #ff4b2b;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-5px);
+}
+
+.status-tag {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Contact Page Layout */
+.contact-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contact-info, .inquiry-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-details p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+/* Form Improvements */
+.styled-form p, .auth-container p {
+    margin-bottom: 20px;
+}
+
+.btn-danger {
+    background: #ff416c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-btn-link {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.auth-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.styled-form p {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.auth-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}

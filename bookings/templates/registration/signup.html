@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Create an Account</h2>
+        <p>Join Magic Moments to manage your party bookings.</p>
+        
+        <form method="post" class="styled-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn-submit">Sign Up</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

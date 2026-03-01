@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Party Den | Magic Moments</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,37 +16,78 @@
         <nav>
             <div class="logo">MAGIC MOMENTS</div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#book">Book Now</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'history' %}">My Bookings</a></li>
+                    <li><a href="{% url 'account' %}">Account</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-btn-link">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}" class="btn-signup">Sign Up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1500'); background-size: cover;">
             <h1>THE PARTY DEN</h1>
             <p class="tagline">"We Celebrate Every Occasion"</p>
-            <div class="price-badge">₹499/- per hr</div>
-            <img src="{% static 'images/banner.jpg' %}" alt="The Party Den Flyer" class="banner-img">
+            <div class="price-badge">Starting at ₹499/- per hr</div>
+            <a href="#book" class="btn-hero">Book Your Slot Now</a>
         </section>
 
         <section class="services">
-            <ul>
-                <li>Birthdays</li>
-                <li>Anniversaries</li>
-                <li>Mini Theatre</li>
-                <li>Photography</li>
-            </ul>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=300" alt="Birthdays">
+                <h3>Birthdays</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=300" alt="Anniversaries">
+                <h3>Anniversaries</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=300" alt="Mini Theatre">
+                <h3>Mini Theatre</h3>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=300" alt="Photography">
+                <h3>Photography</h3>
+            </div>
         </section>
+
+        <section class="gallery">
+            <h2 class="section-title">Our Magic Moments</h2>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=400" alt="Party Setup">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=400" alt="DJ Night">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=400" alt="Celebration">
+            </div>
+        </section>
+
         <section id="book" class="booking-section">
-            <h2>Book Your Event</h2>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn">Submit Booking</button>
-            </form>
+            <div class="booking-container">
+                <h2>Ready to Celebrate?</h2>
+                <p>Fill out the form below and we'll get back to you shortly.</p>
+                <form method="POST" class="styled-form">
+                    {% csrf_token %}
+                    <div class="form-fields">
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="btn-submit">Confirm Booking Request</button>
+                </form>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Magic Moments - The Party Den. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

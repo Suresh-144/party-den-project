@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="contact-page">
+    <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>We are here to make your celebrations magical!</p>
+        <div class="contact-details">
+            <p><strong>📞 Phone:</strong> 9398572500, 9390832500</p>
+            <p><strong>📍 Location:</strong> Visit The Party Den for a tour of our Mini Theatre.</p>
+        </div>
+    </div>
+
+    <div class="inquiry-form">
+        <h3>General Inquiry</h3>
+        <form method="post" action="{% url 'index' %}#book">
+            {% csrf_token %}
+            <p>For specific date availability, please use the booking form on the <a href="{% url 'index' %}">Home Page</a>.</p>
+            <label>Your Question:</label>
+            <textarea placeholder="How can we help you?"></textarea>
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
